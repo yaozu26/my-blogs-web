@@ -1,0 +1,16 @@
+body {
+  font-size: 16px;
+  font-family: CyanFont, sans-serif;
+  color: var(--theme-color);
+  background-color: var(--theme-bg-color);
+  transition: all 300ms;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+.wrap-v1 {
+  margin: 0 80px;
+}

@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, useEffect } from 'react'
+import { useRoutes } from 'react-router-dom'
+
+import routes from './router'
+import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
+import { fetchThemeColorAction, fetchThemeModeAction } from '@/store/modules/main/main'
+import AppHeader from './components/app-header'
+// import WebBg from '@/views/web-bg'
 
 function App() {
+  // 根据isSun值确定主题，派发事件
+  const { themeMode } = useAppSelector(
+    (state) => ({
+      themeMode: state.main.themeMode
+    }),
+    shallowEqual
+  )
+
+  // 派发事件
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(fetchThemeModeAction(themeMode))
+    dispatch(fetchThemeColorAction())
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <WebBg /> */}
+      <AppHeader />
+      <div className="page" style={{ marginTop: '60px' }}>
+        <Suspense fallback="">
+          <div className="main">{useRoutes(routes)}</div>
+        </Suspense>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
