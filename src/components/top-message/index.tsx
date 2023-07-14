@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 
-import { RecordWrapper } from './style'
+import { TopMessageWrapper } from './style'
 import IconMessage from '@/assets/svg/home/icon-message'
 import { shallowEqual, useAppSelector } from '@/store'
 
@@ -9,7 +9,7 @@ interface IProps {
   children?: ReactNode
 }
 
-const Record: FC<IProps> = () => {
+const TopMessage: FC<IProps> = () => {
   // 从store获取数据
   const { currentColor } = useAppSelector(
     (state) => ({
@@ -19,7 +19,7 @@ const Record: FC<IProps> = () => {
   )
 
   return (
-    <RecordWrapper>
+    <TopMessageWrapper>
       <div className="icon">
         <IconMessage currentColor={currentColor} />
       </div>
@@ -27,8 +27,8 @@ const Record: FC<IProps> = () => {
       <div className="icon">
         <IconMessage currentColor={currentColor} />
       </div>
-    </RecordWrapper>
+    </TopMessageWrapper>
   )
 }
 
-export default memo(Record)
+export default memo(TopMessage)

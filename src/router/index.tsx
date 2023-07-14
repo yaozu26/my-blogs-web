@@ -3,9 +3,8 @@ import { Navigate } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 
 const Login = lazy(() => import('@/views/login'))
-const Home = lazy(() => import('@/views/home'))
-const Project = lazy(() => import('@/views/project'))
-const Blogs = lazy(() => import('@/views/blogs'))
+const Home = lazy(() => import('@/views/main/c-page/home'))
+const Blogs = lazy(() => import('@/views/main/c-page/blogs'))
 
 const routes: RouteObject[] = [
   {
@@ -19,10 +18,6 @@ const routes: RouteObject[] = [
   {
     path: '/home',
     element: <Home />
-  },
-  {
-    path: '/project',
-    element: <Project />
   },
   {
     path: '/blogs',
