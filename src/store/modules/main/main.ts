@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
+import { THEME_MODE } from '@/global/constants'
+
 interface ImainState {
   themeMode: string
   currentColor: string
 }
 
 const initialState: ImainState = {
-  themeMode: 'moon',
+  themeMode: localStorage.getItem(THEME_MODE) || 'moon',
   currentColor: ''
 }
 
@@ -16,6 +18,7 @@ const mainSlicer = createSlice({
   reducers: {
     changeThemeModeAction(state, { payload }) {
       state.themeMode = payload
+      localStorage.setItem(THEME_MODE, payload)
     },
     changeThemeColorAction(state, { payload }) {
       state.currentColor = payload

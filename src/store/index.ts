@@ -2,15 +2,17 @@ import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 import mainSlicer from './modules/main/main'
+import loginSlicer from './modules/login/login'
 
 const store = configureStore({
   reducer: {
-    main: mainSlicer
+    main: mainSlicer,
+    login: loginSlicer
   }
 })
 
 // 获取state和dispatch的类型
-type GetStateType = typeof store.getState
+export type GetStateType = typeof store.getState
 export type IRootState = ReturnType<GetStateType>
 type DispatchType = typeof store.dispatch
 
