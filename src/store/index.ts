@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 import mainSlicer from './modules/main/main'
+import homeSlicer from './modules/main/home'
 import loginSlicer from './modules/login/login'
 
 const store = configureStore({
   reducer: {
     main: mainSlicer,
-    login: loginSlicer
+    login: loginSlicer,
+    home: homeSlicer
   }
 })
 

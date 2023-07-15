@@ -51,24 +51,6 @@ export const CardInfoWrapper = styled.div`
     }
   }
 
-  .about-me {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .email {
-      width: 40px;
-      height: 40px;
-    }
-
-    .know {
-      padding: 10px 20px;
-      color: var(--theme-color);
-      border-radius: 20px;
-      background-color: #aaa;
-    }
-  }
-
   .message {
     display: flex;
     align-items: center;
