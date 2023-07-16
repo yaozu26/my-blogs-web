@@ -4,7 +4,9 @@ import type { FC, ReactNode } from 'react'
 import { HomeWrapper } from './style'
 import Tagline from './c-cpn/tagline'
 import CardInfo from '@/components/card-info'
-import { useAppDispatch } from '@/store'
+import ProjectItem from './c-cpn/project-item'
+import TopMessage from '@/components/top-message'
+import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
 import { fetchProjectDataAction } from '@/store/modules/main/home'
 
 interface IProps {
@@ -17,11 +19,24 @@ const Home: FC<IProps> = () => {
     dispatch(fetchProjectDataAction())
   }, [])
 
+  const { projectData } = useAppSelector(
+    (state) => ({
+      projectData: state.home.projectData
+    }),
+    shallowEqual
+  )
+
   return (
     <HomeWrapper>
+      <TopMessage />
       <div className="content">
         <div className="left">
           <Tagline />
+          <div className="pro-wrap">
+            {projectData.map((item) => {
+              return <ProjectItem key={item.id} itemData={item} />
+            })}
+          </div>
         </div>
         <div className="right">
           <CardInfo />

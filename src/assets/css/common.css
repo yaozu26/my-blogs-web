@@ -4,6 +4,10 @@ body {
   color: var(--theme-color);
   background-color: var(--theme-bg-color);
   transition: all 300ms;
+
+  /* 隐藏IE和火狐的滚动条 */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 button {
@@ -13,4 +17,9 @@ button {
 
 .wrap-v1 {
   margin: 0 80px;
+}
+
+/* 隐藏chrome的滚动条 */
+body::-webkit-scrollbar {
+  display: none;
 }

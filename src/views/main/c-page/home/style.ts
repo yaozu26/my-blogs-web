@@ -10,10 +10,16 @@ export const HomeWrapper = styled.div`
 
     .left {
       flex: 1;
+
+      .pro-wrap {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
     }
 
     .right {
-      margin-left: 40px;
+      margin-left: 20px;
       width: 300px;
     }
   }

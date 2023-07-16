@@ -9,7 +9,7 @@ export const TopMessageWrapper = styled.div`
   padding: 8px 20px;
   border: 1px solid #fff5;
   border-radius: 10px;
-  background-color: var(--theme-primary-color);
+  background-color: var(--theme-bg-clor-v1);
 
   .text {
     text-align: center;

@@ -4,7 +4,6 @@ import { useRoutes } from 'react-router-dom'
 
 import { MainWrapper } from './style'
 import routes from '@/router'
-import TopMessage from '../../components/top-message'
 import { useAppDispatch } from '@/store'
 import { fetchAuthDataAction, fetchRecordDataAction } from '@/store/modules/main/main'
 
@@ -21,10 +20,7 @@ const Main: FC<IProps> = () => {
 
   return (
     <MainWrapper className="wrap-v1">
-      <TopMessage />
-      <div className="page">
-        <Suspense fallback="">{useRoutes(routes)}</Suspense>
-      </div>
+      <Suspense fallback="">{useRoutes(routes)}</Suspense>
     </MainWrapper>
   )
 }

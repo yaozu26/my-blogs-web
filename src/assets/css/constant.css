@@ -1,19 +1,23 @@
 :root {
   --theme-bg-color: #d9e2e8;
+  --theme-bg-clor-v1: #fff9;
   --theme-color: #333;
   --theme-text-color-v1: #fff;
+  --theme-primary-color: #fff;
+
   --theme-hover-bg-color: #404ddd;
-  --theme-primary-color: #fff9;
   --theme-second-color: #01234590;
   --theme-thrid-color: #404de8;
 }
 
 .dark {
   --theme-bg-color: #151623;
+  --theme-bg-clor-v1: #1e1e2390;
   --theme-color: #fff;
   --theme-text-color-v1: #111;
+  --theme-primary-color: #111;
+
   --theme-hover-bg-color: #8baaaa;
-  --theme-primary-color: #1e1e2390;
   --theme-second-color: #6789ab90;
   --theme-thrid-color: #012345;
 }
