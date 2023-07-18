@@ -4,6 +4,7 @@ import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
 import { fetchThemeColorAction, fetchThemeModeAction } from '@/store/modules/main/main'
 // import WebBg from '@/views/web-bg'
 import AppHeader from './components/app-header'
+import AppFooter from '@/components/app-footer'
 import Main from '@/views/main'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       {/* <WebBg /> */}
       <AppHeader />
       <Main />
+      <AppFooter />
     </div>
   )
 }

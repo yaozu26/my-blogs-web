@@ -36,6 +36,7 @@ export const RightWrapper = styled.div<IRight>`
       border: 2px solid var(--theme-color);
       border-radius: 12px;
       background-color: ${(props) => (props.mode === 'sun' ? '#f1f1f1' : '#4448')};
+      cursor: pointer;
 
       .icon {
         position: absolute;

@@ -3,13 +3,15 @@ import { TypedUseSelectorHook, shallowEqual, useDispatch, useSelector } from 're
 
 import mainSlicer from './modules/main/main'
 import homeSlicer from './modules/main/home'
+import blogsSlicer from './modules/main/blogs'
 import loginSlicer from './modules/login/login'
 
 const store = configureStore({
   reducer: {
     main: mainSlicer,
     login: loginSlicer,
-    home: homeSlicer
+    home: homeSlicer,
+    blogs: blogsSlicer
   }
 })
 

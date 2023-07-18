@@ -73,9 +73,9 @@ const HeaderRight: FC<IProps> = () => {
       </div>
 
       <div className="appearance">
-        <a href="#" className="switch" onClick={handleChangeThemeClick}>
+        <div className="switch" onClick={handleChangeThemeClick}>
           <span className="icon">{themeMode === 'sun' ? <SwitchSun /> : <SwitchMoon />}</span>
-        </a>
+        </div>
       </div>
 
       <a
