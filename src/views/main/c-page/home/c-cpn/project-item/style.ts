@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 
 export const ItemWrapper = styled.div`
+  position: relative;
   width: 49%;
   margin-top: 10px;
   color: var(--theme-color);
@@ -12,6 +13,18 @@ export const ItemWrapper = styled.div`
 
   &:hover img {
     transform: scale(1.1);
+  }
+
+  .theme {
+    position: absolute;
+    z-index: 9;
+    left: 8px;
+    top: 4px;
+    padding: 4px 8px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #fff8;
+    border-radius: 4px;
   }
 
   .cover {

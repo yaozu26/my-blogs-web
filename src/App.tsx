@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
+import { useRoutes } from 'react-router-dom'
 
 import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
 import { fetchThemeColorAction, fetchThemeModeAction } from '@/store/modules/main/main'
 // import WebBg from '@/views/web-bg'
-import AppHeader from './components/app-header'
-import AppFooter from '@/components/app-footer'
-import Main from '@/views/main'
+import routes from '@/router'
 
 function App() {
   // 根据isSun值确定主题，派发事件
@@ -26,9 +25,7 @@ function App() {
   return (
     <div className="App">
       {/* <WebBg /> */}
-      <AppHeader />
-      <Main />
-      <AppFooter />
+      <Suspense fallback="">{useRoutes(routes)}</Suspense>
     </div>
   )
 }

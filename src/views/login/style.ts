@@ -2,14 +2,10 @@ import { styled } from 'styled-components'
 import loginBg from '@/assets/svg/login/login-bg.svg'
 
 export const LoginWrapper = styled.div`
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
   background-color: #fff;
   background-image: url(${loginBg});
 

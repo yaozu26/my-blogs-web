@@ -8,23 +8,6 @@ export const RightWrapper = styled.div<IRight>`
   display: flex;
   align-items: center;
 
-  .titles {
-    display: flex;
-    a {
-      height: 60px;
-      line-height: 60px;
-      margin: 0 5px;
-      padding: 0 20px;
-      font-weight: 700;
-      color: var(--theme-color);
-
-      &:hover,
-      &.active {
-        color: green;
-      }
-    }
-  }
-
   .appearance {
     margin-left: 10px;
 

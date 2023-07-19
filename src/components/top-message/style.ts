@@ -10,6 +10,13 @@ export const TopMessageWrapper = styled.div`
   border: 1px solid #fff5;
   border-radius: 10px;
   background-color: var(--theme-bg-clor-v1);
+  cursor: pointer;
+  transition: all 500ms;
+
+  &:hover {
+    border-color: var(--theme-hover-border-color);
+    box-shadow: 0 0 10px 1px var(--theme-hover-border-color);
+  }
 
   .text {
     text-align: center;

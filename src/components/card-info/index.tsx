@@ -20,9 +20,9 @@ const CardInfo: FC<IProps> = () => {
   return (
     <CardInfoWrapper>
       <div className="header">
-        <a href="#" className="head">
+        <div className="head">
           <img src={authData.avatar_url} alt="" />
-        </a>
+        </div>
         <div className="info">
           <div className="welcome">Hello,{getCurrentTime()}好，我是</div>
           <div className="name">{authData.nikename}</div>

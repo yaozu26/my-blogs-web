@@ -1,12 +1,11 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Dropdown, Space } from 'antd'
 import type { MenuProps } from 'antd'
 
 import { RightWrapper } from './style'
-import headerTitle from '@/assets/data/header-title.json'
-import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
+import { useAppDispatch } from '@/store'
 import { changeThemeModeAction, fetchThemeColorAction } from '@/store/modules/main/main'
 import { fetchExitLoginAction } from '@/store/modules/login/login'
 import SwitchSun from '@/assets/svg/header/switch-sun'
@@ -15,19 +14,17 @@ import IconGithub from '@/assets/svg/header/icon-github'
 
 interface IProps {
   children?: ReactNode
+  themeMode: string
+  currentColor: string
+  username: string
+  id: number
 }
 
-const HeaderRight: FC<IProps> = () => {
+const HeaderRight: FC<IProps> = (props) => {
+  const { themeMode, currentColor, username, id } = props
+
   // 从store获取数据
   const dispatch = useAppDispatch()
-  const { themeMode, currentColor, username } = useAppSelector(
-    (state) => ({
-      themeMode: state.main.themeMode,
-      currentColor: state.main.currentColor,
-      username: state.login.userName
-    }),
-    shallowEqual
-  )
 
   // 切换主题色的事件
   function handleChangeThemeClick() {
@@ -41,7 +38,6 @@ const HeaderRight: FC<IProps> = () => {
         dispatch(changeThemeModeAction('sun'))
         break
     }
-
     dispatch(fetchThemeColorAction())
   }
 
@@ -52,6 +48,14 @@ const HeaderRight: FC<IProps> = () => {
       label: <a onClick={handleExitClick}>退出登录</a>
     }
   ]
+  useEffect(() => {
+    if (id === 2) {
+      items.push({
+        key: '2',
+        label: <Link to="/user">用户管理</Link>
+      })
+    }
+  }, [id])
 
   // 退出登录
   function handleExitClick() {
@@ -60,18 +64,6 @@ const HeaderRight: FC<IProps> = () => {
 
   return (
     <RightWrapper mode={themeMode}>
-      <div className="titles">
-        {headerTitle.map((item) => (
-          <NavLink
-            to={item.link}
-            key={item.link}
-            className={({ isActive }) => (isActive ? 'active' : '')}
-          >
-            {item.title}
-          </NavLink>
-        ))}
-      </div>
-
       <div className="appearance">
         <div className="switch" onClick={handleChangeThemeClick}>
           <span className="icon">{themeMode === 'sun' ? <SwitchSun /> : <SwitchMoon />}</span>

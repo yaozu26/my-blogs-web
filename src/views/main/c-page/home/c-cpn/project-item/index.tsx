@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { ItemWrapper } from './style'
 import coverImg from '@/assets/img/home/cover_project.jpg'
@@ -12,14 +13,23 @@ interface IProps {
     updateTime: string
     createTime: string
     title: string
+    id: number
+    theme: string
   }
 }
 
 const ProjectItem: FC<IProps> = (props) => {
   const { itemData } = props
 
+  // 路由跳转
+  const Navigate = useNavigate()
+  function handleNavigateClick() {
+    Navigate(`/project?id=${itemData.id}`)
+  }
+
   return (
-    <ItemWrapper>
+    <ItemWrapper onClick={handleNavigateClick}>
+      <div className="theme">{itemData.theme}</div>
       <div className="cover">
         <img src={coverImg} alt="" />
       </div>

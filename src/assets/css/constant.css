@@ -4,8 +4,9 @@
   --theme-color: #333;
   --theme-text-color-v1: #fff;
   --theme-primary-color: #fff;
-
   --theme-hover-bg-color: #404ddd;
+  --theme-hover-border-color: #00f5;
+
   --theme-second-color: #01234590;
   --theme-thrid-color: #404de8;
 }
@@ -16,8 +17,9 @@
   --theme-color: #fff;
   --theme-text-color-v1: #111;
   --theme-primary-color: #111;
-
   --theme-hover-bg-color: #8baaaa;
+  --theme-hover-border-color: #fff5;
+
   --theme-second-color: #6789ab90;
   --theme-thrid-color: #012345;
 }

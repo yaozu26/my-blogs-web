@@ -1,7 +1,7 @@
 export const getCurrentTime = () => {
   const currentHour = new Date().getHours()
 
-  if (currentHour < 6 && currentHour >= 18) {
+  if (currentHour < 6 || currentHour >= 18) {
     return '晚上'
   } else if (currentHour < 8) {
     return '早上'

@@ -1,6 +1,5 @@
 import React, { memo, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
-import { Link } from 'react-router-dom'
 import { Button, Checkbox, Form, Input, message } from 'antd'
 import type { FormInstance } from 'antd/es/form'
 import type { CheckboxChangeEvent } from 'antd/es/checkbox'
@@ -66,6 +65,11 @@ const Login: FC<IProps> = () => {
     setIsLogin(!isLogin)
   }
 
+  // 返回上一级路由
+  function handleBackClick() {
+    history.back()
+  }
+
   return (
     <LoginWrapper>
       {contextHolder}
@@ -110,7 +114,7 @@ const Login: FC<IProps> = () => {
           </Form.Item>
 
           <div className="switch">
-            <Link to="/home">返回</Link>
+            <a onClick={handleBackClick}>返回</a>
             <div className="register" onClick={handleSwitchRegisterLogin}>
               {isLogin ? '注册用户' : '用户登录'}
             </div>

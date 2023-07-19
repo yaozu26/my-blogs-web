@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  padding: 0 35px;
+  padding: 0 40px;
   border-bottom: 1px solid #6669;
   background-color: var(--theme-bg-color);
 `
