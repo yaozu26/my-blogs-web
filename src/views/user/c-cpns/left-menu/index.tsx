@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu } from 'antd'
-import { UserOutlined, ReadOutlined } from '@ant-design/icons'
+import { UserOutlined, UsbOutlined } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 
 import { MenuWrapper } from './style'
@@ -18,8 +18,8 @@ const items: MenuItem[] = [
   },
   {
     key: '2',
-    label: <Link to="/user/record">记录管理</Link>,
-    icon: <ReadOutlined />
+    label: <Link to="/user/product">项目管理</Link>,
+    icon: <UsbOutlined />
   }
 ]
 

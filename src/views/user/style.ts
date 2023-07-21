@@ -5,7 +5,7 @@ export const UserWrapper = styled.div`
 
   .right {
     width: 100%;
-    .top {
+    > .top {
       height: 50px;
       background-color: #fff;
     }

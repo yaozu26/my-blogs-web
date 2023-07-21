@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 import { MainWrapper } from './style'
 import { useAppDispatch } from '@/store'
-import { fetchAuthDataAction, fetchRecordDataAction } from '@/store/modules/main/main'
+import { fetchAuthDataAction } from '@/store/modules/main/main'
 import AppHeader from '@/components/app-header'
 
 interface IProps {
@@ -15,7 +15,6 @@ const Main: FC<IProps> = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(fetchAuthDataAction())
-    dispatch(fetchRecordDataAction())
   }, [])
 
   return (
