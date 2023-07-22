@@ -1,18 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import { THEME_MODE } from '@/global/constants'
-import { getUserInfoData } from '@/service/module/main/main'
+import { getLabelListData, getUserInfoData } from '@/service/module/main'
 
 interface ImainState {
   themeMode: string
   currentColor: string
   authData: any
+  labelListData: any[]
 }
-
 const initialState: ImainState = {
   themeMode: localStorage.getItem(THEME_MODE) || 'moon',
   currentColor: '',
-  authData: {}
+  authData: {},
+  labelListData: []
 }
 
 const mainSlicer = createSlice({
@@ -28,12 +29,19 @@ const mainSlicer = createSlice({
     },
     changeAuthDataAction(state, { payload }) {
       state.authData = payload
+    },
+    changeLabelListAction(state, { payload }) {
+      state.labelListData = payload
     }
   }
 })
 
-export const { changeThemeColorAction, changeThemeModeAction, changeAuthDataAction } =
-  mainSlicer.actions
+export const {
+  changeThemeColorAction,
+  changeThemeModeAction,
+  changeAuthDataAction,
+  changeLabelListAction
+} = mainSlicer.actions
 export default mainSlicer.reducer
 
 // 改变主题样式
@@ -58,4 +66,10 @@ export const fetchThemeColorAction = createAsyncThunk('themeColor', (arg, { disp
 export const fetchAuthDataAction = createAsyncThunk('authInfo', async (arg, { dispatch }) => {
   const res = await getUserInfoData()
   dispatch(changeAuthDataAction(res.data))
+})
+
+// 获取所有标签信息
+export const fetchLabelListAction = createAsyncThunk('labelList', async (arg, { dispatch }) => {
+  const res = await getLabelListData()
+  dispatch(changeLabelListAction(res.data))
 })

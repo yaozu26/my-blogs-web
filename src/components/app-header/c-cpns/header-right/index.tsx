@@ -6,7 +6,7 @@ import type { MenuProps } from 'antd'
 
 import { RightWrapper } from './style'
 import { useAppDispatch } from '@/store'
-import { changeThemeModeAction, fetchThemeColorAction } from '@/store/modules/main/main'
+import { changeThemeModeAction, fetchThemeColorAction } from '@/store/modules/main'
 import { fetchExitLoginAction } from '@/store/modules/login/login'
 import SwitchSun from '@/assets/svg/header/switch-sun'
 import SwitchMoon from '@/assets/svg/header/switch-moon'

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, shallowEqual, useDispatch, useSelector } from 'react-redux'
 
-import mainSlicer from './modules/main/main'
+import mainSlicer from './modules/main'
 import homeSlicer from './modules/main/home'
 import blogsSlicer from './modules/main/blogs'
 import loginSlicer from './modules/login/login'

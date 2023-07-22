@@ -2,7 +2,7 @@ import React, { Suspense, useEffect } from 'react'
 import { useRoutes } from 'react-router-dom'
 
 import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
-import { fetchThemeColorAction, fetchThemeModeAction } from '@/store/modules/main/main'
+import { fetchThemeColorAction, fetchThemeModeAction } from '@/store/modules/main'
 // import WebBg from '@/views/web-bg'
 import routes from '@/router'
 

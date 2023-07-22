@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 import { MainWrapper } from './style'
 import { useAppDispatch } from '@/store'
-import { fetchAuthDataAction } from '@/store/modules/main/main'
+import { fetchAuthDataAction } from '@/store/modules/main'
 import AppHeader from '@/components/app-header'
 
 interface IProps {

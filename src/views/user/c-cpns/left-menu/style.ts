@@ -1,9 +1,5 @@
 import { styled } from 'styled-components'
 
-interface IMenu {
-  isCollapsed: boolean
-}
-
 export const MenuWrapper = styled.div`
   height: 100vh;
   background-color: #001529;

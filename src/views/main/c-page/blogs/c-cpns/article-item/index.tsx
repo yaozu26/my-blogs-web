@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react'
 
 import { ArticleItemWrapper } from './style'
 import { formatTime } from '@/utils/formatTime'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 interface IProps {
   children?: ReactNode
