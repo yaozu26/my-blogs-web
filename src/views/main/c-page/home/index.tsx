@@ -2,7 +2,6 @@ import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
 
 import { HomeWrapper } from './style'
-import Tagline from './c-cpn/tagline'
 import CardInfo from '@/components/card-info'
 import ProjectItem from './c-cpn/project-item'
 import TopMessage from '@/components/top-message'
@@ -31,7 +30,6 @@ const Home: FC<IProps> = () => {
       <TopMessage />
       <div className="content">
         <div className="left">
-          <Tagline />
           <div className="pro-wrap">
             {projectData.map((item) => {
               return <ProjectItem key={item.id} itemData={item} />

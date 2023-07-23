@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export const ItemWrapper = styled.div`
   position: relative;
   width: 49%;
-  margin-top: 10px;
+  margin-bottom: 10px;
   color: var(--theme-color);
   background-color: var(--theme-bg-clor-v1);
   border-radius: 10px;

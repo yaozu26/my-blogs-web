@@ -4,7 +4,6 @@ export const TopMessageWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 32px;
   padding: 8px 20px;
   border: 1px solid #fff5;
