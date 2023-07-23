@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import { DataType } from '@/types/user/product'
-import { getProductData } from '@/service/module/user/product'
+import { deleteProductRequest, getProductData } from '@/service/module/user/product'
 import { formatDate } from '@/utils/formatTime'
 
 interface IProductState {
@@ -37,6 +37,7 @@ export const fetchProductListAction = createAsyncThunk('productList', async (arg
       index: index,
       id: item.id,
       title: item.title,
+      theme: item.theme,
       createTime: formatDate(item.createAt),
       updateTime: formatDate(item.updateAt),
       labels: item.labels
@@ -44,3 +45,12 @@ export const fetchProductListAction = createAsyncThunk('productList', async (arg
   }
   dispatch(changeProductListAction(data))
 })
+
+// 删除项目
+export const fetchDeleteProductAction = createAsyncThunk(
+  'deleteProduct',
+  async (arg: number, { dispatch }) => {
+    await deleteProductRequest(arg)
+    dispatch(fetchProductListAction())
+  }
+)

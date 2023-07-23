@@ -4,26 +4,35 @@ import remarkGfm from 'remark-gfm'
 import ReactMarkdown from 'react-markdown'
 
 import { CenterWrapper } from './style'
-import { Button } from 'antd'
-import { postProductRequest } from '@/service/module/user/product'
+import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
+import { changeContentAction, changeTitleAction } from '@/store/modules/write'
 
 interface IProps {
   children?: ReactNode
 }
 
 const WriteCenter: FC<IProps> = () => {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
   const [height, setHeight] = useState(26)
+
+  // 从store获取数据
+  const { title, content } = useAppSelector(
+    (state) => ({
+      title: state.write.title,
+      content: state.write.content
+    }),
+    shallowEqual
+  )
+
+  const dispatch = useAppDispatch()
 
   // 处理标题输入的事件
   function handleTitleChange(e: ChangeEvent<HTMLTextAreaElement>) {
-    setTitle(e.target.value)
+    dispatch(changeTitleAction(e.target.value))
   }
 
   // 处理内容输入的逻辑
   function handleContentChange(e: ChangeEvent<HTMLTextAreaElement>) {
-    setContent(e.target.value)
+    dispatch(changeContentAction(e.target.value))
   }
 
   // 处理键盘事件
@@ -37,13 +46,6 @@ const WriteCenter: FC<IProps> = () => {
         setHeight(height - 26)
         break
     }
-  }
-
-  // 发布项目
-  function handleIssueProduct() {
-    postProductRequest(title, '前端开发', ['Vue2', 'CSS'], content).then(() => {
-      console.log('项目发布成功')
-    })
   }
 
   return (
@@ -69,10 +71,6 @@ const WriteCenter: FC<IProps> = () => {
         ></textarea>
         <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
       </div>
-
-      <Button type="primary" onClick={handleIssueProduct}>
-        发布项目
-      </Button>
     </CenterWrapper>
   )
 }

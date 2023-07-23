@@ -6,71 +6,9 @@ import { ColumnsType } from 'antd/es/table'
 
 import { ProductWrapper } from './style'
 import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
-import { fetchProductListAction } from '@/store/modules/user/product'
+import { fetchDeleteProductAction, fetchProductListAction } from '@/store/modules/user/product'
 import { DataType } from '@/types/user/product'
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: '序列',
-    dataIndex: 'index',
-    key: 'index',
-    align: 'center'
-  },
-  {
-    title: 'id',
-    dataIndex: 'id',
-    key: 'id',
-    align: 'center'
-  },
-  {
-    title: '标题',
-    dataIndex: 'title',
-    key: 'title',
-    align: 'center'
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'createTime',
-    key: 'createTime',
-    align: 'center'
-  },
-  {
-    title: '更新时间',
-    dataIndex: 'updateTime',
-    key: 'updateTime',
-    align: 'center'
-  },
-  {
-    title: '标签',
-    dataIndex: 'labels',
-    key: 'labels',
-    align: 'center',
-    render: (text, { labels }) => {
-      return (
-        <>
-          {labels.map((item) => {
-            return (
-              <Tag color="green" key={item.id}>
-                {item.name}
-              </Tag>
-            )
-          })}
-        </>
-      )
-    }
-  },
-  {
-    title: '操作',
-    key: 'action',
-    align: 'center',
-    render: () => (
-      <Space size="middle">
-        <a>编辑</a>
-        <a>删除</a>
-      </Space>
-    )
-  }
-]
+import { fetchProductDetailAction } from '@/store/modules/write'
 
 interface IProps {
   children?: ReactNode
@@ -94,8 +32,88 @@ const Product: FC<IProps> = () => {
   // 新增项目的路由跳转
   const navigate = useNavigate()
   function handleAddClick() {
-    navigate('/write')
+    navigate('/write', { state: { isIssue: true } })
   }
+
+  // 编辑项目的路由跳转
+  function handleEditClick(id: number) {
+    navigate(`/write?id=${id}`, { state: { isIssue: false } })
+    dispatch(fetchProductDetailAction(id))
+  }
+
+  // 删除项目
+  function handleDeleteClick(id: number) {
+    dispatch(fetchDeleteProductAction(id))
+  }
+
+  const columns: ColumnsType<DataType> = [
+    {
+      title: '序列',
+      dataIndex: 'index',
+      key: 'index',
+      align: 'center'
+    },
+    {
+      title: 'id',
+      dataIndex: 'id',
+      key: 'id',
+      align: 'center'
+    },
+    {
+      title: '标题',
+      dataIndex: 'title',
+      key: 'title',
+      align: 'center'
+    },
+    {
+      title: '主题',
+      dataIndex: 'theme',
+      key: 'theme',
+      align: 'center'
+    },
+    {
+      title: '标签',
+      dataIndex: 'labels',
+      key: 'labels',
+      align: 'center',
+      render: (text, { labels }) => {
+        return (
+          <>
+            {labels?.map((item) => {
+              return (
+                <Tag color="green" key={item.id}>
+                  {item.name}
+                </Tag>
+              )
+            })}
+          </>
+        )
+      }
+    },
+    {
+      title: '创建时间',
+      dataIndex: 'createTime',
+      key: 'createTime',
+      align: 'center'
+    },
+    {
+      title: '更新时间',
+      dataIndex: 'updateTime',
+      key: 'updateTime',
+      align: 'center'
+    },
+    {
+      title: '操作',
+      key: 'action',
+      align: 'center',
+      render: (text, { id }) => (
+        <Space size="middle">
+          <a onClick={() => handleEditClick(id)}>编辑</a>
+          <a onClick={() => handleDeleteClick(id)}>删除</a>
+        </Space>
+      )
+    }
+  ]
 
   return (
     <ProductWrapper>
