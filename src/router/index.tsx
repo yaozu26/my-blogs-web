@@ -8,11 +8,6 @@ const Main = lazy(() => import('@/views/main'))
 const Blogs = lazy(() => import('@/views/main/c-page/blogs'))
 const Project = lazy(() => import('@/views/project'))
 const Article = lazy(() => import('@/views/article'))
-const Write = lazy(() => import('@/views/write'))
-// 后台管理
-const User = lazy(() => import('@/views/user'))
-const Role = lazy(() => import('@/views/user/c-pages/role'))
-const Product = lazy(() => import('@/views/user/c-pages/product'))
 
 const routes: RouteObject[] = [
   {
@@ -48,28 +43,6 @@ const routes: RouteObject[] = [
   {
     path: '/project',
     element: <Project />
-  },
-  {
-    path: '/write',
-    element: <Write />
-  },
-  {
-    path: '/user',
-    element: <User />,
-    children: [
-      {
-        path: '/user',
-        element: <Navigate to="/user/role" />
-      },
-      {
-        path: '/user/role',
-        element: <Role />
-      },
-      {
-        path: '/user/product',
-        element: <Product />
-      }
-    ]
   }
 ]
 

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Dropdown, Space } from 'antd'
@@ -17,11 +17,10 @@ interface IProps {
   themeMode: string
   currentColor: string
   username: string
-  id: number
 }
 
 const HeaderRight: FC<IProps> = (props) => {
-  const { themeMode, currentColor, username, id } = props
+  const { themeMode, currentColor, username } = props
 
   // 从store获取数据
   const dispatch = useAppDispatch()
@@ -48,14 +47,6 @@ const HeaderRight: FC<IProps> = (props) => {
       label: <a onClick={handleExitClick}>退出登录</a>
     }
   ]
-  useEffect(() => {
-    if (id === 2) {
-      items.push({
-        key: '2',
-        label: <Link to="/user">用户管理</Link>
-      })
-    }
-  }, [id])
 
   // 退出登录
   function handleExitClick() {

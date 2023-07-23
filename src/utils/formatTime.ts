@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 
 export const formatDate = (time: string) => {
-  return dayjs(time).format('YYYY-MM-DD')
+  return dayjs(time).format('YYYY-MM-DD HH:mm:ss')
 }
 
 export const formatTime = (time: any) => {

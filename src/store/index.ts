@@ -5,19 +5,13 @@ import mainSlicer from './modules/main'
 import homeSlicer from './modules/main/home'
 import blogsSlicer from './modules/main/blogs'
 import loginSlicer from './modules/login/login'
-import roleSlicer from './modules/user/role'
-import productSlicer from './modules/user/product'
-import writeSlicer from './modules/write'
 
 const store = configureStore({
   reducer: {
     main: mainSlicer,
     login: loginSlicer,
     home: homeSlicer,
-    blogs: blogsSlicer,
-    role: roleSlicer,
-    product: productSlicer,
-    write: writeSlicer
+    blogs: blogsSlicer
   }
 })
 

@@ -4,7 +4,7 @@ import type { FC, ReactNode } from 'react'
 import { HomeWrapper } from './style'
 import CardInfo from '@/components/card-info'
 import ProjectItem from './c-cpn/project-item'
-import TopMessage from '@/components/top-message'
+import TopMessage from '@/views/main/c-page/home/c-cpn/top-message'
 import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
 import { fetchProjectDataAction } from '@/store/modules/main/home'
 

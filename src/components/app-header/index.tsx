@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const AppHeader: FC<IProps> = () => {
-  const { themeMode, currentColor, username, id } = useAppSelector(
+  const { themeMode, currentColor, username } = useAppSelector(
     (state) => ({
       themeMode: state.main.themeMode,
       currentColor: state.main.currentColor,
@@ -27,7 +27,7 @@ const AppHeader: FC<IProps> = () => {
     <HeaderWrapper>
       <HeaderLeft />
       <HeaderCenter currentColor={currentColor} />
-      <HeaderRight currentColor={currentColor} username={username} themeMode={themeMode} id={id} />
+      <HeaderRight currentColor={currentColor} username={username} themeMode={themeMode} />
     </HeaderWrapper>
   )
 }
