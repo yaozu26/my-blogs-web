@@ -56,7 +56,7 @@ export const fetchThemeModeAction = createAsyncThunk('themeMode', (arg: string) 
   }
 })
 
-// 改变当前颜色
+// 获取当前颜色
 export const fetchThemeColorAction = createAsyncThunk('themeColor', (arg, { dispatch }) => {
   const currentColor = getComputedStyle(document.documentElement).getPropertyValue('--theme-color')
   dispatch(changeThemeColorAction(currentColor))

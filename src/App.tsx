@@ -5,6 +5,7 @@ import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
 import { fetchThemeColorAction, fetchThemeModeAction } from '@/store/modules/main'
 // import WebBg from '@/views/web-bg'
 import routes from '@/router'
+import AppHeader from './components/app-header'
 
 function App() {
   // 根据isSun值确定主题，派发事件
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="App">
       {/* <WebBg /> */}
+      <AppHeader />
       <Suspense fallback="">{useRoutes(routes)}</Suspense>
     </div>
   )

@@ -7,14 +7,14 @@ export const CenterWrapper = styled.div`
     align-items: center;
     margin: 0 5px;
     padding: 6px 8px;
+    font-size: 18px;
     font-weight: 700;
-    color: var(--theme-color);
     border-radius: 8px;
 
     &:hover,
     &.active {
-      color: var(--theme-text-color-v1);
-      background-color: var(--theme-hover-bg-color);
+      color: #fff;
+      background-color: var(--theme-active-bg-color);
     }
 
     .text {

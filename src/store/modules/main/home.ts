@@ -23,7 +23,7 @@ const homeSlicer = createSlice({
 export const { changeProjectDataAction } = homeSlicer.actions
 export default homeSlicer.reducer
 
-// 获取项目信息
+// 获取项目列表信息
 export const fetchProjectDataAction = createAsyncThunk('projectData', async (arg, { dispatch }) => {
   const res = await getProjectData()
   dispatch(changeProjectDataAction(res.data))

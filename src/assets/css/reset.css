@@ -9,10 +9,21 @@ button {
 }
 
 a {
-  color: #333;
+  color: var(--theme-color);
   text-decoration: none;
 }
 
 img {
   vertical-align: top;
+}
+
+body {
+  /* 隐藏IE和火狐的滚动条 */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* 隐藏chrome的滚动条 */
+body::-webkit-scrollbar {
+  display: none;
 }

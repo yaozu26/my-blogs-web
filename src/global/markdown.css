@@ -1,0 +1,10 @@
+h1 {
+  height: 48px;
+  line-height: 48px;
+  margin: 20px 0 14px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 600;
+}

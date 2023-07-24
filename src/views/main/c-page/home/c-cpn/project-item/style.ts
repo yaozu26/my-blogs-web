@@ -4,8 +4,7 @@ export const ItemWrapper = styled.div`
   position: relative;
   width: 49%;
   margin-bottom: 10px;
-  color: var(--theme-color);
-  background-color: var(--theme-bg-clor-v1);
+  background-color: var(--theme-write);
   border-radius: 10px;
   border: 1px solid #fff5;
   cursor: pointer;

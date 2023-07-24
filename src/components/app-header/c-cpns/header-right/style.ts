@@ -32,7 +32,7 @@ export const RightWrapper = styled.div<IRight>`
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background-color: var(--theme-primary-color);
+        background-color: var(--theme-active-text-color);
         transition: all 0.3s;
       }
     }
@@ -55,8 +55,8 @@ export const RightWrapper = styled.div<IRight>`
       color: var(--theme-color);
       border-radius: 8px;
       &:hover {
-        color: #fff;
-        background-color: var(--theme-hover-bg-color);
+        color: var(--theme-active-text-color);
+        background-color: var(--theme-active-bg-color);
       }
     }
   }

@@ -5,7 +5,7 @@ export const CardInfoWrapper = styled.div`
   font-weight: 700;
   color: #fff;
   border-radius: 10px;
-  background-color: var(--theme-second-color);
+  background-color: var(--theme-bg-color-v2);
 
   .header {
     display: flex;

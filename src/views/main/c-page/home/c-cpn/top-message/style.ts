@@ -8,13 +8,13 @@ export const TopMessageWrapper = styled.div`
   padding: 8px 20px;
   border: 1px solid #fff5;
   border-radius: 10px;
-  background-color: var(--theme-bg-clor-v1);
+  background-color: var(--theme-write);
   cursor: pointer;
   transition: all 500ms;
 
   &:hover {
-    border-color: var(--theme-hover-border-color);
-    box-shadow: 0 0 10px 1px var(--theme-hover-border-color);
+    border-color: var(--theme-active-bg-color);
+    box-shadow: 0 0 10px 1px var(--theme-active-bg-color);
   }
 
   .text {

@@ -7,7 +7,7 @@ import type { CheckboxChangeEvent } from 'antd/es/checkbox'
 import { LoginWrapper } from './style'
 import { IAccount } from '@/types'
 import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
-import { changeAutoLoginAction, fetchLoginAction } from '@/store/modules/login/login'
+import { changeAutoLoginAction, fetchLoginAction } from '@/store/modules/login'
 import { registerUserRequest } from '@/service/module/login'
 
 interface IProps {

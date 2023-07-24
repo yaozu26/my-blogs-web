@@ -5,7 +5,6 @@ import { Outlet } from 'react-router-dom'
 import { MainWrapper } from './style'
 import { useAppDispatch } from '@/store'
 import { fetchAuthDataAction } from '@/store/modules/main'
-import AppHeader from '@/components/app-header'
 
 interface IProps {
   children?: ReactNode
@@ -19,7 +18,6 @@ const Main: FC<IProps> = () => {
 
   return (
     <MainWrapper className="wrap-v1">
-      <AppHeader />
       <Outlet />
     </MainWrapper>
   )
