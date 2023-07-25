@@ -4,7 +4,7 @@ export const ArticleWrapper = styled.div`
   .article-list {
     padding: 0 20px;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: var(--theme-write);
   }
 
   .pagination {

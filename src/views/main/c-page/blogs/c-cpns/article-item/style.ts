@@ -15,18 +15,17 @@ export const ArticleItemWrapper = styled.div`
       padding: 0 8px;
       color: #e4e6eb;
     }
-
-    .tags {
-      .dot {
-        margin: 0 4px;
-        color: #666;
-        font-weight: 500;
-      }
-    }
   }
 
   .title {
     margin: 8px 0;
     font-weight: 600;
+    font-size: 18px;
+  }
+
+  .desc {
+    height: 22px;
+    line-height: 22px;
+    color: #8a919f;
   }
 `

@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
+import { Tag } from 'antd'
 
 import { ArticleItemWrapper } from './style'
 import { formatTime } from '@/utils/formatTime'
@@ -25,17 +26,17 @@ const ArticleItem: FC<IProps> = (props) => {
         <span className="time">{formatTime(itemData.updateTime)}</span>
         <span className="line">|</span>
         <div className="tags">
-          {itemData.labels?.map((item: any, index: number) => {
+          {itemData.labels?.map((item: any) => {
             return (
-              <span key={item.id} className="item">
-                <span className="name">{item.name}</span>
-                {index < itemData.labels.length - 1 && <span className="dot">·</span>}
-              </span>
+              <Tag key={item.id} color="green">
+                {item.name}
+              </Tag>
             )
           })}
         </div>
       </div>
       <div className="title">{itemData.title}</div>
+      <div className="desc">描述</div>
     </ArticleItemWrapper>
   )
 }

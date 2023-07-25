@@ -1,42 +1,8 @@
 import { styled } from 'styled-components'
 
-interface IRight {
-  mode: string
-}
-
-export const RightWrapper = styled.div<IRight>`
+export const RightWrapper = styled.div`
   display: flex;
   align-items: center;
-
-  .appearance {
-    margin-left: 10px;
-
-    .switch {
-      position: relative;
-      display: flex;
-      width: 40px;
-      height: 20px;
-      border: 2px solid var(--theme-color);
-      border-radius: 12px;
-      background-color: ${(props) => (props.mode === 'sun' ? '#f1f1f1' : '#4448')};
-      cursor: pointer;
-
-      .icon {
-        position: absolute;
-        top: 50%;
-        left: ${(props) => (props.mode === 'sun' ? '0' : '20px')};
-        transform: translateY(-50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background-color: var(--theme-active-text-color);
-        transition: all 0.3s;
-      }
-    }
-  }
 
   .github {
     padding-left: 20px;

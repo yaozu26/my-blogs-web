@@ -5,11 +5,3 @@
   --theme-active-bg-color: #425aef;
   --theme-write: #fff;
 }
-
-.dark {
-  --theme-color: #fff;
-  --theme-bg-color: #1e1e23;
-  --theme-bg-color-v2: #a197a1;
-  --theme-active-bg-color: #8baaaa;
-  --theme-write: #111;
-}

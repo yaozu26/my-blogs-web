@@ -1,5 +1,4 @@
 // ----- main
-export const THEME_MODE = 'theme_mode'
 
 // ----- login
 export const IS_AUTO_LOGIN = 'is_auto_login'
