@@ -5,8 +5,8 @@ import { useSearchParams } from 'react-router-dom'
 import { ProjectWrapper } from './style'
 import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
 import { fetchProjectDetailAction } from '@/store/modules/project'
-import ProjectInfo from './c-cpns/project-info'
-import ProjectContent from './c-cpns/project-content'
+import PageInfo from '@/components/page-info'
+import PageContent from '@/components/page-content'
 
 interface IProps {
   children?: ReactNode
@@ -33,16 +33,13 @@ const Project: FC<IProps> = () => {
 
   return (
     <ProjectWrapper>
-      <header className="page-header">
-        <ProjectInfo
-          theme={projectDetailData.theme}
-          labels={projectDetailData.labels}
-          title={projectDetailData.title}
-        />
-      </header>
-      <main className="page-main wrap-v1">
-        <ProjectContent content={projectDetailData.content} />
-      </main>
+      <PageInfo
+        theme={projectDetailData.theme}
+        labels={projectDetailData.labels}
+        title={projectDetailData.title}
+        createTime={projectDetailData.createAt}
+      />
+      <PageContent content={projectDetailData.content} />
     </ProjectWrapper>
   )
 }

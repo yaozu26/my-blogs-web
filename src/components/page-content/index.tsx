@@ -11,7 +11,7 @@ interface IProps {
   content: string
 }
 
-const ProjectContent: FC<IProps> = (props) => {
+const PageContent: FC<IProps> = (props) => {
   const { content } = props
 
   return (
@@ -21,4 +21,4 @@ const ProjectContent: FC<IProps> = (props) => {
   )
 }
 
-export default memo(ProjectContent)
+export default memo(PageContent)

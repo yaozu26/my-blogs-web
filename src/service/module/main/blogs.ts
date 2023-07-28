@@ -10,3 +10,10 @@ export const getArticleData = (limit: number, offset: number) => {
     }
   })
 }
+
+// 查询文章详情
+export const getArticleDetailData = (id: number) => {
+  return hyRequest.get({
+    url: `/article/${id}`
+  })
+}

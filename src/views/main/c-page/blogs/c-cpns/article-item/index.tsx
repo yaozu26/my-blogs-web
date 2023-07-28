@@ -36,7 +36,7 @@ const ArticleItem: FC<IProps> = (props) => {
         </div>
       </div>
       <div className="title">{itemData.title}</div>
-      <div className="desc">描述</div>
+      <div className="desc">{itemData.des}</div>
     </ArticleItemWrapper>
   )
 }

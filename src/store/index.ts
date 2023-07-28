@@ -6,6 +6,7 @@ import homeSlicer from './modules/main/home'
 import blogsSlicer from './modules/main/blogs'
 import loginSlicer from './modules/login'
 import projectSlicer from './modules/project'
+import articleSlicer from './modules/article'
 
 const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ const store = configureStore({
     login: loginSlicer,
     home: homeSlicer,
     blogs: blogsSlicer,
-    project: projectSlicer
+    project: projectSlicer,
+    article: articleSlicer
   }
 })
 

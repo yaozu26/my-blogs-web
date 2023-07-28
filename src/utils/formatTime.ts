@@ -1,7 +1,13 @@
 import dayjs from 'dayjs'
 
+// 返回 年月日时分秒
 export const formatDate = (time: string) => {
   return dayjs(time).format('YYYY-MM-DD HH:mm:ss')
+}
+
+// 返回 年月日
+export const formatDay = (time: string) => {
+  return dayjs(time).format('YYYY-MM-DD')
 }
 
 export const formatTime = (time: any) => {
