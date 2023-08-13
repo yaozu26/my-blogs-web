@@ -4,9 +4,10 @@ import { useSearchParams } from 'react-router-dom'
 
 import { ArticleWrapper } from './style'
 import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
-import { fetchArticleDetailAction } from '@/store/modules/article'
+import { fetchArticleDetailAction, fetchCommentsDataAction } from '@/store/modules/article'
 import PageInfor from '@/components/page-info'
 import PageContent from '@/components/page-content'
+import PageComment from '@/components/page-comment'
 
 interface IProps {
   children?: ReactNode
@@ -21,6 +22,7 @@ const Article: FC<IProps> = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(fetchArticleDetailAction(id))
+    dispatch(fetchCommentsDataAction())
   }, [])
 
   // 3、从store获取数据
@@ -33,13 +35,18 @@ const Article: FC<IProps> = () => {
 
   return (
     <ArticleWrapper>
-      <PageInfor
-        theme={articleDetailData.theme}
-        labels={articleDetailData.labels}
-        title={articleDetailData.title}
-        createTime={articleDetailData.createAt}
-      />
-      <PageContent content={articleDetailData.content} />
+      <header>
+        <PageInfor
+          theme={articleDetailData.theme}
+          labels={articleDetailData.labels}
+          title={articleDetailData.title}
+          createTime={articleDetailData.createAt}
+        />
+      </header>
+      <main className="page-main">
+        <PageContent content={articleDetailData.content} />
+        <PageComment />
+      </main>
     </ArticleWrapper>
   )
 }

@@ -17,3 +17,21 @@ export const getArticleDetailData = (id: number) => {
     url: `/article/${id}`
   })
 }
+
+// 发表评论
+export const postCommentRequest = (
+  content: string,
+  articleId: number,
+  commentId: number | null
+) => {
+  return hyRequest.post({
+    url: '/comment'
+  })
+}
+
+// 查询评论
+export const getCommentsList = () => {
+  return hyRequest.get({
+    url: '/comment'
+  })
+}
