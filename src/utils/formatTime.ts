@@ -10,6 +10,7 @@ export const formatDay = (time: string) => {
   return dayjs(time).format('YYYY-MM-DD')
 }
 
+// 更新时间
 export const formatTime = (time: any) => {
   const nowTime = dayjs(new Date()).unix()
   const intervalTime = nowTime - dayjs(time).unix()
@@ -22,6 +23,8 @@ export const formatTime = (time: any) => {
     return Math.floor(intervalTime / 60 / 60) + '小时前'
   } else if (intervalTime < 60 * 60 * 24 * 30) {
     return Math.floor(intervalTime / 60 / 60 / 24) + '天前'
+  } else if (intervalTime < 60 * 60 * 24 * 30 * 12) {
+    return Math.floor(intervalTime / 60 / 60 / 24 / 30) + '月前'
   }
 
   return dayjs(time).unix()
