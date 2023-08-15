@@ -45,7 +45,7 @@ const Article: FC<IProps> = () => {
       </header>
       <main className="page-main">
         <PageContent content={articleDetailData.content} />
-        <PageComment />
+        <PageComment articleId={id} />
       </main>
     </ArticleWrapper>
   )

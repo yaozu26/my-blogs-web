@@ -45,10 +45,14 @@ interface IArg {
   articleId: number
   commentId: number | null
 }
-export const fetchCreateCommentAction = createAsyncThunk('createComent', async (arg: IArg) => {
-  const { content, articleId, commentId } = arg
-  await postCommentRequest(content, articleId, commentId)
-})
+export const fetchCreateCommentAction = createAsyncThunk(
+  'createComent',
+  async (arg: IArg, { dispatch }) => {
+    const { content, articleId, commentId } = arg
+    await postCommentRequest(content, articleId, commentId)
+    dispatch(fetchCommentsDataAction())
+  }
+)
 
 // 查询评论列表
 export const fetchCommentsDataAction = createAsyncThunk(

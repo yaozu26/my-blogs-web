@@ -25,7 +25,12 @@ export const postCommentRequest = (
   commentId: number | null
 ) => {
   return hyRequest.post({
-    url: '/comment'
+    url: '/comment',
+    data: {
+      content,
+      articleId,
+      commentId
+    }
   })
 }
 
