@@ -9,4 +9,17 @@ export const CommentWrapper = styled.div`
   > .title {
     margin-left: 16px;
   }
+
+  .write {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 16px;
+    padding-bottom: 20px;
+
+    .left {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+    }
+  }
 `

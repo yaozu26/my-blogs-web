@@ -29,15 +29,53 @@ export const ItemCommentWrapper = styled.div`
       margin: 16px 0;
     }
 
-    .replay {
-      .img {
-        width: 20px;
-        height: 20px;
+    .action-box {
+      display: flex;
+      justify-content: space-between;
+
+      .reply {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+          color: #1e80ff;
+
+          .icon-reply {
+            fill: #1e80ff;
+          }
+        }
+
+        .icon-reply {
+          fill: #aaa;
+        }
+
+        .text {
+          margin-left: 4px;
+        }
       }
 
-      .text {
-        margin-left: 4px;
+      .delete {
+        cursor: pointer;
+
+        &:hover {
+          color: red;
+        }
       }
+    }
+
+    .active-box {
+      position: relative;
+      z-index: 9999;
+      margin-top: 20px;
+    }
+
+    .cover {
+      position: fixed;
+      z-index: 9998;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
     }
   }
 `

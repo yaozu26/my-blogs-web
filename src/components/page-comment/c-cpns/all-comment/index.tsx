@@ -8,9 +8,12 @@ import ItemComment from '../item-comment'
 
 interface IProps {
   children?: ReactNode
+  articleId: number
 }
 
-const AllComment: FC<IProps> = () => {
+const AllComment: FC<IProps> = (props) => {
+  const { articleId } = props
+
   const { commentsDataList } = useAppSelector(
     (state) => ({
       commentsDataList: state.article.commentsDataList
@@ -25,10 +28,12 @@ const AllComment: FC<IProps> = () => {
       {commentsDataList.map((item) => {
         return (
           <div key={item.id} className="item">
-            <ItemComment itemData={item} />
+            <ItemComment itemData={item} articleId={articleId} commentId={item.id} />
 
             <div className="child-wrap">
-              {item.children.length !== 0 && <ChildComment childData={item.children} />}
+              {item.children.length !== 0 && (
+                <ChildComment childData={item.children} articleId={articleId} commentId={item.id} />
+              )}
             </div>
           </div>
         )

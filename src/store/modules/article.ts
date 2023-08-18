@@ -1,8 +1,12 @@
-import { getArticleDetailData, postCommentRequest } from '@/service/module/main/blogs'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { IArtilceDetail } from '@/types'
-import { getCommentsList } from '@/service/module/main/blogs'
+import type { IArtilceDetail } from '@/types'
+import {
+  deleteCommentRequest,
+  getArticleDetailData,
+  postCommentRequest,
+  getCommentsList
+} from '@/service/module/main/blogs'
 
 interface IArticleSatae {
   articleDetailData: IArtilceDetail | any
@@ -36,29 +40,35 @@ export const fetchArticleDetailAction = createAsyncThunk(
   async (arg: number, { dispatch }) => {
     const res = await getArticleDetailData(arg)
     dispatch(changeArticleDetailAction(res.data))
+    dispatch(fetchCommentsDataAction(arg))
+  }
+)
+
+// 获取评论列表数据
+export const fetchCommentsDataAction = createAsyncThunk(
+  'commentsData',
+  async (arg: number, { dispatch }) => {
+    const res = await getCommentsList(arg)
+    dispatch(changeCommentsDataAction(res.data))
   }
 )
 
 // 发表评论
-interface IArg {
-  content: string
-  articleId: number
-  commentId: number | null
-}
 export const fetchCreateCommentAction = createAsyncThunk(
-  'createComent',
-  async (arg: IArg, { dispatch }) => {
-    const { content, articleId, commentId } = arg
-    await postCommentRequest(content, articleId, commentId)
-    dispatch(fetchCommentsDataAction())
+  'createComment',
+  async (arg: any, { dispatch }) => {
+    const { content, articleId, commentId, parentId } = arg
+    const res = await postCommentRequest(content, articleId, commentId, parentId)
+    console.log(res)
+    dispatch(fetchCommentsDataAction(articleId))
   }
 )
 
-// 查询评论列表
-export const fetchCommentsDataAction = createAsyncThunk(
-  'commentsData',
-  async (arg, { dispatch }) => {
-    const res = await getCommentsList()
-    dispatch(changeCommentsDataAction(res.data))
+// 删除评论
+export const fetchDeleteCommentAction = createAsyncThunk(
+  'deleteComment',
+  async (arg: any, { dispatch }) => {
+    await deleteCommentRequest(arg.id)
+    dispatch(fetchCommentsDataAction(arg.articleId))
   }
 )

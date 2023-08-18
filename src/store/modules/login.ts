@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import { IAccount } from '@/types'
 import { accountLoginRequest } from '@/service/module/login'
-import { IS_AUTO_LOGIN, LOGIN_TOKEN, USER_NAME, ID } from '@/global/constants'
+import { IS_AUTO_LOGIN, LOGIN_TOKEN, USER_ID, USER_NAME } from '@/global/constants'
 
 interface ILoginState {
   username: string
@@ -14,7 +14,7 @@ interface ILoginState {
 const initialState: ILoginState = {
   token: localStorage.getItem(LOGIN_TOKEN) || '',
   username: localStorage.getItem(USER_NAME) || '',
-  id: Number(localStorage.getItem(ID)) || 0,
+  id: Number(localStorage.getItem(USER_ID)) || 0,
   isAutoLogin: !!localStorage.getItem(IS_AUTO_LOGIN) || true
 }
 
@@ -42,11 +42,11 @@ const loginSlicer = createSlice({
       if (state.isAutoLogin) {
         localStorage.setItem(LOGIN_TOKEN, payload.token)
         localStorage.setItem(USER_NAME, payload.name)
-        localStorage.setItem(ID, payload.id)
+        localStorage.setItem(USER_ID, payload.id)
       } else {
         localStorage.removeItem(LOGIN_TOKEN)
         localStorage.removeItem(USER_NAME)
-        localStorage.removeItem(ID)
+        localStorage.removeItem(USER_ID)
       }
 
       // 3、路由跳转回上一级
@@ -72,5 +72,5 @@ export const fetchExitLoginAction = createAsyncThunk('exit-login', async (arg, {
   // 2、清除本地存储的用户信息
   localStorage.removeItem(LOGIN_TOKEN)
   localStorage.removeItem(USER_NAME)
-  localStorage.removeItem(ID)
+  localStorage.removeItem(USER_ID)
 })

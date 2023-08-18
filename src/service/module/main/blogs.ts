@@ -22,21 +22,33 @@ export const getArticleDetailData = (id: number) => {
 export const postCommentRequest = (
   content: string,
   articleId: number,
-  commentId: number | null
+  commentId: number | null,
+  parentId: number
 ) => {
   return hyRequest.post({
     url: '/comment',
     data: {
       content,
       articleId,
-      commentId
+      commentId,
+      parentId
     }
   })
 }
 
 // 查询评论
-export const getCommentsList = () => {
+export const getCommentsList = (articleId: number) => {
   return hyRequest.get({
-    url: '/comment'
+    url: '/comment',
+    params: {
+      articleId
+    }
+  })
+}
+
+// 删除评论
+export const deleteCommentRequest = (id: number) => {
+  return hyRequest.delete({
+    url: `/comment/${id}`
   })
 }
