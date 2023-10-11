@@ -2,43 +2,29 @@ import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
 
 import { HomeWrapper } from './style'
-import CardInfo from '@/components/card-info'
-import ProjectItem from './c-cpn/project-item'
-import TopMessage from '@/views/main/c-page/home/c-cpn/top-message'
-import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
-import { fetchProjectDataAction } from '@/store/modules/main/home'
+import { useAppDispatch } from '@/store'
+import { fetchProjectDataAction } from '@/store/modules/home'
+import HomeTop from './c-cpn/home-top'
+import HomeLeft from './c-cpn/home-left'
+import HomeRight from './c-cpn/home-right'
 
 interface IProps {
   children?: ReactNode
 }
 
 const Home: FC<IProps> = () => {
+  // 派发事件
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(fetchProjectDataAction())
-  }, [])
-
-  const { projectData } = useAppSelector(
-    (state) => ({
-      projectData: state.home.projectData
-    }),
-    shallowEqual
-  )
+  })
 
   return (
     <HomeWrapper>
-      <TopMessage />
+      <HomeTop />
       <div className="content">
-        <div className="left">
-          <div className="pro-wrap">
-            {projectData.map((item) => {
-              return <ProjectItem key={item.id} itemData={item} />
-            })}
-          </div>
-        </div>
-        <div className="right">
-          <CardInfo />
-        </div>
+        <HomeLeft />
+        <HomeRight />
       </div>
     </HomeWrapper>
   )

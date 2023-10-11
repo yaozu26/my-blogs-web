@@ -18,7 +18,7 @@ const HeaderCenter: FC<IProps> = () => {
       </NavLink>
       <NavLink to="/main/blogs">
         <ReadFilled />
-        <span className="text">博客</span>
+        <span className="text">文库</span>
       </NavLink>
     </CenterWrapper>
   )

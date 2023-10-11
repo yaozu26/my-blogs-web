@@ -11,7 +11,7 @@ const HeaderLeft: FC<IProps> = () => {
   return (
     <LeftWrapper>
       <a href="#" className="logo">
-        yaozu
+        YaoZu & Blog
       </a>
     </LeftWrapper>
   )

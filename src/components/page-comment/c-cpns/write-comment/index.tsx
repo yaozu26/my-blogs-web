@@ -44,6 +44,7 @@ const WriteComment: FC<IProps> = (props) => {
         maxLength={200}
         autoSize={{ minRows: 2, maxRows: 6 }}
         onChange={handleChange}
+        placeholder="登录帐号才能发表评论~"
       />
 
       <div className="bottom">

@@ -1,6 +1,11 @@
+@font-face {
+  font-family: 'Cloud Peak';
+  src: url('../font-family/cloud-peak.ttf');
+}
+
 body {
   font-size: 14px;
-  font-family: CyanFont, sans-serif;
+  /* font-family: 'Cloud Peak'; */
   color: var(--theme-color);
   background-color: var(--theme-bg-color);
   transition: all 300ms;
