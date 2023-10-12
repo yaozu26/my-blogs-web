@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { getProjectData } from '@/service/module/main/home'
+import { getProjectData } from '@/service/module/home'
 
 interface IHomeState {
-  projectData: any[]
+  projectListData: any[]
 }
 
 const initialState: IHomeState = {
-  projectData: []
+  projectListData: []
 }
 
 const homeSlicer = createSlice({
@@ -15,7 +15,7 @@ const homeSlicer = createSlice({
   initialState,
   reducers: {
     changeProjectDataAction(state, { payload }) {
-      state.projectData = payload
+      state.projectListData = payload
     }
   }
 })

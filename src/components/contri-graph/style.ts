@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
 export const GraphWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 20px;
+  height: 170px;
   background-color: #fff;
   border-radius: 8px;
 

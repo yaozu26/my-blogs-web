@@ -6,7 +6,7 @@ import {
   getArticleDetailData,
   postCommentRequest,
   getCommentsList
-} from '@/service/module/main/blogs'
+} from '@/service/module/blogs'
 
 interface IArticleSatae {
   articleDetailData: IArtilceDetail | any

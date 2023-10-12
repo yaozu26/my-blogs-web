@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { getArticleData } from '@/service/module/main/blogs'
+import { getArticleData } from '@/service/module/blogs'
 import type { ILim } from '@/types'
 
 interface IBlogsState {

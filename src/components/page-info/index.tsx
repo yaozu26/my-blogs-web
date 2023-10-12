@@ -9,7 +9,7 @@ import { formatTime } from '@/utils/formatTime'
 interface IProps {
   children?: ReactNode
   theme: string
-  labels: any[]
+  labels?: any[]
   title: string
   createTime: string
 }
@@ -21,7 +21,7 @@ const PageInfo: FC<IProps> = (props) => {
       <div className="cover">
         <div className="top">
           {theme && <div className="theme">{theme}</div>}
-          <div className="tags">
+          {/* <div className="tags">
             {labels?.map((item) => {
               return (
                 <Tag key={item.id} color="cyan">
@@ -29,7 +29,7 @@ const PageInfo: FC<IProps> = (props) => {
                 </Tag>
               )
             })}
-          </div>
+          </div> */}
         </div>
         <h1 className="title">{title}</h1>
         <div className="meta">

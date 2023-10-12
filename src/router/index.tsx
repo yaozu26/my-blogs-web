@@ -3,9 +3,9 @@ import { Navigate } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 
 const Login = lazy(() => import('@/views/login'))
-const Home = lazy(() => import('@/views/main/c-page/home'))
+const Home = lazy(() => import('@/views/home'))
 const Main = lazy(() => import('@/views/main'))
-const Blogs = lazy(() => import('@/views/main/c-page/blogs'))
+const Blogs = lazy(() => import('@/views/blogs'))
 const Project = lazy(() => import('@/views/project'))
 const Article = lazy(() => import('@/views/article'))
 

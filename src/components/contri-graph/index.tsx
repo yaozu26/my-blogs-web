@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const ContriGraph: FC<IProps> = () => {
-  const TOKEN = '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'
+  const TOKEN = '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'
   const username = 'yaozu26'
   const theme = 'light'
 

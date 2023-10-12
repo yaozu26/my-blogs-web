@@ -36,14 +36,13 @@ const Project: FC<IProps> = () => {
       <header>
         <PageInfo
           theme={projectDetailData.theme}
-          labels={projectDetailData.labels}
           title={projectDetailData.title}
           createTime={projectDetailData.createAt}
         />
       </header>
 
       <main className="page-main">
-        <PageContent content={projectDetailData.content} />
+        <PageContent content={projectDetailData.content} />{' '}
       </main>
     </ProjectWrapper>
   )

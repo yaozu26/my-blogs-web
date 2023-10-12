@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { getProjectDetail } from '@/service/module/main/home'
+import { getProjectDetail } from '@/service/module/project'
 import { IProjectDetail } from '@/types'
 
 interface IProjectState {
