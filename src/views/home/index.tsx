@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react'
 
 import { HomeWrapper } from './style'
 import { useAppDispatch } from '@/store'
-import { fetchProjectDataAction } from '@/store/modules/home'
+import { fetchProjectDataAction, fetchThemeDataAction } from '@/store/modules/home'
 import HomeTop from './c-cpn/home-top'
 import HomeLeft from './c-cpn/home-left'
 import HomeRight from './c-cpn/home-right'
@@ -17,6 +17,7 @@ const Home: FC<IProps> = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(fetchProjectDataAction())
+    dispatch(fetchThemeDataAction())
   })
 
   return (

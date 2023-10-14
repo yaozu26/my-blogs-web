@@ -21,11 +21,10 @@ export const CategoryWrapper = styled.div`
     .theme-list {
       display: flex;
       margin-left: 10px;
-      font-size: 16px;
-      font-weight: 700;
-
       .item {
         margin: 0 6px;
+        cursor: pointer;
+        ${(props) => props.theme.mixin.hoverActive}
       }
     }
   }

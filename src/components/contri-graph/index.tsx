@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import { Graph } from 'react-github-contribution-graph'
 import { Skeleton } from 'antd'
@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const ContriGraph: FC<IProps> = () => {
-  const TOKEN = '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'
+  const TOKEN = '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'
   const username = 'yaozu26'
   const theme = 'light'
 

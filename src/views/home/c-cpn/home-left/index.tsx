@@ -13,9 +13,10 @@ interface IProps {
 
 const HomeLeft: FC<IProps> = () => {
   // 获取数据
-  const { projectListData } = useAppSelector(
+  const { projectListData, themeListData } = useAppSelector(
     (state) => ({
-      projectListData: state.home.projectListData
+      projectListData: state.home.projectListData,
+      themeListData: state.home.themeListData
     }),
     shallowEqual
   )
@@ -23,7 +24,7 @@ const HomeLeft: FC<IProps> = () => {
   return (
     <LeftWrapper>
       <ContriGraph />
-      <CategoryBar />
+      <CategoryBar themeListData={themeListData} />
       <div className="p-content">
         {projectListData.map((item) => {
           return <ItemCardV1 key={item.id} itemData={item} />
