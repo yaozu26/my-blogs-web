@@ -4,7 +4,7 @@ import { Input, Button } from 'antd'
 const { TextArea } = Input
 
 import { WriteCommentWrapper } from './style'
-import { useAppDispatch } from '@/store'
+import { shallowEqual, useAppDispatch, useAppSelector } from '@/store'
 import { fetchCreateCommentAction } from '@/store/modules/article'
 
 interface IProps {
@@ -16,8 +16,15 @@ interface IProps {
 
 const WriteComment: FC<IProps> = (props) => {
   const { articleId, commentId, parentId } = props
-
   const [content, setContent] = useState<string>('')
+
+  // 从store中获取数据
+  const { token } = useAppSelector(
+    (state) => ({
+      token: state.login.token
+    }),
+    shallowEqual
+  )
 
   const dispatch = useAppDispatch()
 
@@ -44,7 +51,7 @@ const WriteComment: FC<IProps> = (props) => {
         maxLength={200}
         autoSize={{ minRows: 2, maxRows: 6 }}
         onChange={handleChange}
-        placeholder="登录帐号才能发表评论~"
+        placeholder={token ? '请输入评论' : '登录帐号才能发表评论~'}
       />
 
       <div className="bottom">

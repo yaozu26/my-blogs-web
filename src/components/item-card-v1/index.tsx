@@ -10,8 +10,8 @@ interface IProps {
   children?: ReactNode
   itemData: {
     labels: any[]
-    updateTime: string
-    createTime: string
+    updateAt: string
+    createAt: string
     title: string
     id: number
     theme: string
@@ -36,9 +36,9 @@ const ItemCardV1: FC<IProps> = (props) => {
       <div className="info">
         <div className="title">{itemData.title}</div>
         <div className="time">
-          <span>发表于{formatDate(itemData.createTime)}</span>
+          <span>发表于{formatDate(itemData.createAt)}</span>
           <span>|</span>
-          <span>更新于{formatDate(itemData.updateTime)}</span>
+          <span>更新于{formatDate(itemData.updateAt)}</span>
         </div>
         <div className="tags">
           {itemData.labels?.map((item) => {

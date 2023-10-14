@@ -6,6 +6,7 @@ export const GraphWrapper = styled.div`
   justify-content: space-between;
   padding: 20px;
   height: 170px;
+  margin-bottom: 20px;
   background-color: #fff;
   border-radius: 8px;
 

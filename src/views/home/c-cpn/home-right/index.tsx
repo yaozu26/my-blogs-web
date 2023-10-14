@@ -2,7 +2,8 @@ import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 
 import { RightWrapper } from './style'
-import InfoCard from '@/components/info-card'
+import InfoCardV1 from '@/components/info-card-v1'
+import InfoCardV2 from '@/components/info-card-v2'
 
 interface IProps {
   children?: ReactNode
@@ -11,7 +12,8 @@ interface IProps {
 const HomeRight: FC<IProps> = () => {
   return (
     <RightWrapper>
-      <InfoCard />
+      <InfoCardV1 />
+      <InfoCardV2 />
     </RightWrapper>
   )
 }

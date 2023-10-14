@@ -3,7 +3,6 @@ import type { FC, ReactNode } from 'react'
 
 import { CommentWrapper } from './style'
 import avatarImg from '@/assets/img/avatar.png'
-import { shallowEqual, useAppSelector } from '@/store'
 import WriteComment from './c-cpns/write-comment'
 import AllComment from './c-cpns/all-comment'
 

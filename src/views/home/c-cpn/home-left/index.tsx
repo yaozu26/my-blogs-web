@@ -24,7 +24,7 @@ const HomeLeft: FC<IProps> = () => {
   return (
     <LeftWrapper>
       <ContriGraph />
-      <CategoryBar themeListData={themeListData} />
+      {/* <CategoryBar themeListData={themeListData} /> */}
       <div className="p-content">
         {projectListData.map((item) => {
           return <ItemCardV1 key={item.id} itemData={item} />
